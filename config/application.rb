@@ -2,6 +2,10 @@ require_relative "boot"
 
 require "rails/all"
 
+if [ "development", "test" ].include? ENV["RAILS_ENV"]
+  Dotenv::Railtie.load
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -15,6 +19,10 @@ module TestTwygoLms
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+
+    config.time_zone = "Brasilia"
+    config.eager_load_paths << Rails.root.join("lib")
+    config.generators.system_tests = :rspec
 
     # Configuration for the application, engines, and railties goes here.
     #

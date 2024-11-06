@@ -36,7 +36,18 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Pagination
+# gem 'pagy'
+
 group :development, :test do
+  gem "awesome_print"
+  gem "dotenv-rails"
+  gem "faker"
+  gem "ruby-lsp", require: false
+  gem "ruby-lsp-rails"
+  gem "pry"
+  gem "pry-rails"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -50,6 +61,12 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+end
+
+group :test do
+  gem "factory_bot_rails"
+  gem "rspec-rails"
+  gem "simplecov", require: false
 end
 
 group :test do
