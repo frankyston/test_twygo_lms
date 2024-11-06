@@ -1,0 +1,44 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+    container_name: test_twygo_lms
+    image: test_twygo_lms_app
+    command: bin/dev
+    volumes:
+      - .:/app
+      - test_twygo_lms_bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    networks:
+      - test_twygo_lms_network
+    tty: true
+    stdin_open: true
+    env_file:
+      - ${ENV_FILE:-.env}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16.3-alpine
+    container_name: test_twygo_lms_app_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - test_twygo_lms_network
+
+volumes:
+  pg_data:
+  test_twygo_lms_bundle:
+
+
+networks:
+  test_twygo_lms_network:
+    name: test_twygo_lms_network
+    external: true
