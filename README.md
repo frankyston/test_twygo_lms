@@ -1,6 +1,6 @@
 ## Setup of project
 
-1. Create file `.env` and `env.test` off file `.env.sample`.
+1. Create file `.env` and `env.test` off file `env.sample`.
 2. Create network
 ```
 docker network create -d bridge test_twygo_lms_network
@@ -30,4 +30,9 @@ rails db:migrate
 8. Execute the command below for populate database
 ```
 rails db:seed
+```
+9. Execute minitest
+```
+ENV_FILE=.env.test dcr -it --rm app bash
+rake test
 ```

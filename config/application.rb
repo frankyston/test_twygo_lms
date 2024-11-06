@@ -3,7 +3,8 @@ require_relative "boot"
 require "rails/all"
 
 if [ "development", "test" ].include? ENV["RAILS_ENV"]
-  Dotenv::Railtie.load
+  require "dotenv"
+  Dotenv.load
 end
 
 # Require the gems listed in Gemfile, including any gems
