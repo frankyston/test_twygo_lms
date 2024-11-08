@@ -1,19 +1,40 @@
 class Admin::CoursesController < Admin::BaseController
   def index
+    @courses = Course.all
   end
 
   def new
+    @course = Course.new
   end
 
   def create
+    @course = Course.new(course_params)
+    if @course.save
+      redirect_to admin_courses_path, notice: 'Curso criado com sucesso'
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @course.update(course_params)
+      redirect_to admin_courses_path, notice: 'Curso atualizado com sucesso'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @course.destroy
+    redirect_to admin_courses_path, notice: 'Curso deletado com sucesso'
+  end
+
+  private
+
+  def course_params
+    params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at)
   end
 end
