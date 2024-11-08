@@ -1,0 +1,39 @@
+<nav id="header" class="w-full z-30 top-0 py-1">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+
+      <label for="menu-toggle" class="cursor-pointer md:hidden block">
+        <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <title>menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+      </label>
+      <input class="hidden" type="checkbox" id="menu-toggle" />
+
+      <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+        <nav>
+          <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Inicio</a></li>
+            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Meus cursos</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="order-1 md:order-2">
+        <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+          <img src="https://twygo.com/wp-content/themes/twygo/img/mascote.svg" width="40" height="40">
+          TWYGO
+        </a>
+      </div>
+
+      <div class="order-2 md:order-3 flex items-center" id="nav-content">
+        <%= button_to Current.session, method: :delete, class: 'mt-2 inline-block no-underline hover:text-black' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+        <% end%>
+      </div>
+
+    </div>
+  </nav>
