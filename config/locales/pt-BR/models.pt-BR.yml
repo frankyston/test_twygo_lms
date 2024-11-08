@@ -1,0 +1,28 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        two: 'Usuários'
+      course:
+        one: "Curso"
+        two: 'Cursos'
+    attributes:
+      user:
+        email: E-mail
+        password: Senha
+        name: Nome
+        role: Cargo
+      course:
+        title: Nome do curso
+        description: Descrição
+        instructor: Instrutor
+        started_at: Data início
+        ended_at: Data fim
+
+    enums:
+      user:
+        roles:
+          admin: Administrador
+          student: Estudante

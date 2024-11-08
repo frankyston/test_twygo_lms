@@ -2,7 +2,7 @@
   <%= form_with(model: [:admin, @course], class: 'w-full', as: :html) do |form| %>
     <% if @course.errors.any? %>
       <div style="color: red">
-        <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+        <h2><%= I18n.t('activerecord.errors.messages.record_with_errors') %></h2>
 
         <ul>
           <% @course.errors.each do |error| %>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="mt-4 text-right">
-      <%= form.submit 'Salvar', class: 'bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' %>
+      <%= form.submit I18n.t('save'), class: 'bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' %>
     </div>
   <% end %>
 </div>

@@ -1,9 +1,9 @@
 <section class="bg-white py-1">
   <div class="container mx-auto flex items-center flex-wrap pt-3 pb-12">
-    <h1 class="text-2xl font-bold">Novo curso</h1>
+    <h1 class="text-2xl font-bold"><%= I18n.t('new', model: I18n::t("activerecord.models.#{Course.to_s.downcase}", count: 1)) %></h1>
     <div class="w-full text-right">
       <a href="<%= admin_courses_path %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">
-        Voltar
+        <%= I18n.t('back') %>
       </a>
     </div>
 

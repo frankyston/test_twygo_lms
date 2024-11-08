@@ -1,9 +1,9 @@
 <section class="bg-white py-1">
   <div class="container mx-auto flex items-center flex-wrap pt-3 pb-12">
-    <h1 class="text-2xl font-bold">Cursos</h1>
+    <h1 class="text-2xl font-bold"><%= I18n.t("activerecord.models.#{Course.to_s.downcase}.two")%></h1>
     <div class="w-full flex items-center justify-between">
       <a href="<%= new_admin_course_path %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">
-        Novo curso
+        <%= I18n.t('new', model: I18n.t("activerecord.models.#{Course.to_s.downcase}.one")) %>
       </a>
     </div>
 
@@ -27,16 +27,16 @@
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Nome do curso
+                <%= t('activerecord.attributes.course.title') %>
               </th>
               <th scope="col" class="px-6 py-3">
-                Descrição
+                <%= t('activerecord.attributes.course.description') %>
               </th>
               <th scope="col" class="px-6 py-3">
-                Instrutor
+                <%= t('activerecord.attributes.course.instructor') %>
               </th>
               <th scope="col" class="px-6 py-3 text-left w-32">
-                Ações
+                <%= t('actions') %>
               </th>
             </tr>
           </thead>
@@ -53,8 +53,8 @@
                   <%= course.instructor %>
                 </td>
                 <td class="flex items-center px-6 py-4 text-right">
-                  <%= link_to 'Editar', edit_admin_course_path(course), class: 'font-medium text-white bg-blue-500 px-4 py-2 rounded-md hover:underline' %>
-                  <%= button_to 'Excluir', admin_course_path(course), method: :delete, form: { data: { turbo_confirm: 'Tem certeza que deseja excluir este curso?' } }, class: 'font-medium text-white bg-red-500 px-4 py-2 rounded-md hover:underline ms-3' %>
+                  <%= link_to I18n.t('edit'), edit_admin_course_path(course), class: 'font-medium text-white bg-blue-500 px-4 py-2 rounded-md hover:underline' %>
+                  <%= button_to I18n.t('destroy'), admin_course_path(course), method: :delete, form: { data: { turbo_confirm: I18n.t('confirm_message') } }, class: 'font-medium text-white bg-red-500 px-4 py-2 rounded-md hover:underline ms-3' %>
                 </td>
               </tr>
             <% end %>
