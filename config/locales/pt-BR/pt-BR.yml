@@ -1,14 +1,5 @@
 ---
 pt-BR:
-  actions: Ações
-  new: Novo %{model}
-  edit: Editar %{model}
-  about: Sobre a Twygo
-  back: Voltar
-  save: Salvar
-  edit: Editar
-  destroy: Excluir
-  confirm_message: Tem certeza que deseja excluir?
   activerecord:
     errors:
       messages:

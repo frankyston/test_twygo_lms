@@ -1,0 +1,16 @@
+pt-BR:
+  actions: Ações
+  new: Novo %{model}
+  edit: Editar %{model}
+  about: Sobre a Twygo
+  about_description: Somos uma plataforma de cursos online.
+  back: Voltar
+  save: Salvar
+  edit: Editar
+  destroy: Excluir
+  social: Social
+  confirm_message: Tem certeza que deseja excluir?
+  not_found: Nenhum %{model} encontrado.
+  home: Início
+  my_courses: Meus cursos
+  create_courses: Cadastrar cursos

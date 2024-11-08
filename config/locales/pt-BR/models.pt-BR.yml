@@ -20,7 +20,6 @@ pt-BR:
         instructor: Instrutor
         started_at: Data início
         ended_at: Data fim
-
     enums:
       user:
         roles:

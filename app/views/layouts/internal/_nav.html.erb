@@ -21,14 +21,14 @@
       <nav>
         <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
           <li>
-            <%= link_to 'Inicio', root_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+            <%= link_to I18n.t('home'), root_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
           </li>
           <li>
-            <%= link_to 'Meus cursos', '#', class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+            <%= link_to I18n.t('my_courses'), '#', class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
           </li>
           <% if Current.user.admin? %>
             <li>
-              <%= link_to 'Cadastrar cursos', admin_courses_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+              <%= link_to I18n.t('create_courses'), admin_courses_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
             </li>
           <% end %>
         </ul>
