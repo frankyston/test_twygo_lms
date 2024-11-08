@@ -14,6 +14,9 @@
         <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
           <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Inicio</a></li>
           <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Meus cursos</a></li>
+          <% if Current.user.admin? %>
+            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Cadastrar cursos</a></li>
+          <% end %>
         </ul>
       </nav>
     </div>
