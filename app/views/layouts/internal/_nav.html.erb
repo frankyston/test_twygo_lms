@@ -1,6 +1,14 @@
 <nav id="header" class="w-full z-30 top-0 py-1">
-  <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+  <div class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 px-0 py-3">
+    <div class="flex items-center justify-center space-x-2">
+      <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl" href="#">
+        <img src="https://twygo.com/wp-content/themes/twygo/img/mascote.svg" width="40" height="40" class="mr-2">
+        TWYGO
+      </a>
+    </div>
+  </div>
 
+  <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-3 py-3">
     <label for="menu-toggle" class="cursor-pointer md:hidden block">
       <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
         <title>menu</title>
@@ -12,21 +20,22 @@
     <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
       <nav>
         <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-          <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Inicio</a></li>
-          <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Meus cursos</a></li>
+          <li>
+            <%= link_to 'Inicio', root_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+          </li>
+          <li>
+            <%= link_to 'Meus cursos', '#', class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+          </li>
           <% if Current.user.admin? %>
-            <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Cadastrar cursos</a></li>
+            <li>
+              <%= link_to 'Cadastrar cursos', admin_courses_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+            </li>
           <% end %>
         </ul>
       </nav>
     </div>
 
-    <div class="order-1 md:order-2">
-      <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-        <img src="https://twygo.com/wp-content/themes/twygo/img/mascote.svg" width="40" height="40">
-        TWYGO
-      </a>
-    </div>
+
 
     <div class="order-2 md:order-3 flex items-center" id="nav-content">
       <%= button_to Current.session, method: :delete, class: 'mt-2 inline-block no-underline hover:text-black' do %>
