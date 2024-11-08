@@ -1,4 +1,6 @@
 class Admin::CoursesController < Admin::BaseController
+  before_action :set_course, only: [:edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
@@ -33,6 +35,10 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   private
+
+  def set_course
+    @course = Course.find(params[:id])
+  end
 
   def course_params
     params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at)

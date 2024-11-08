@@ -1,5 +1,66 @@
-<section class="bg-white py-8">
-  <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-    Hello admin courses
+<section class="bg-white py-1">
+  <div class="container mx-auto flex items-center flex-wrap pt-3 pb-12">
+    <h1 class="text-2xl font-bold">Cursos</h1>
+    <div class="w-full flex items-center justify-between">
+      <a href="<%= new_admin_course_path %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">
+        Novo curso
+      </a>
+    </div>
+
+    <div class="w-full overflow-x-auto">
+      <div class="w-full flex justify-end mb-4">
+        <label for="table-search" class="sr-only">Search</label>
+        <div class="relative mt-1">
+          <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+          <input type="text" id="table-search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Busque pelo nome do curso">
+        </div>
+      </div>
+
+      <% if @courses.empty? %>
+        <p class="text-center text-gray-500">Nenhum curso encontrado</p>
+      <% else %>
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                Nome do curso
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Descrição
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Instrutor
+              </th>
+              <th scope="col" class="px-6 py-3 text-left w-32">
+                Ações
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @courses.each do |course| %>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= course.title %>
+                </th>
+                <td class="px-6 py-4">
+                  <%= course.description %>
+                </td>
+                <td class="px-6 py-4">
+                  <%= course.instructor %>
+                </td>
+                <td class="flex items-center px-6 py-4 text-right">
+                  <%= link_to 'Editar', edit_admin_course_path(course), class: 'font-medium text-white bg-blue-500 px-4 py-2 rounded-md hover:underline' %>
+                  <%= button_to 'Excluir', admin_course_path(course), method: :delete, form: { data: { turbo_confirm: 'Tem certeza que deseja excluir este curso?' } }, class: 'font-medium text-white bg-red-500 px-4 py-2 rounded-md hover:underline ms-3' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
   </div>
 </section>

@@ -1,0 +1,40 @@
+<div class="container mx-auto flex items-center flex-wrap pt-3" data-turbo="false">
+  <%= form_with(model: [:admin, @course], class: 'w-full', as: :html) do |form| %>
+    <% if @course.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+        <ul>
+          <% @course.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="mb-4">
+      <%= form.label :title, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.text_field :title, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Curso de Flutter para iniciantes' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :description, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.text_area :description, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Aprenda a criar e gerenciar seu próprio aplicativo em Flutter' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :instructor, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.text_field :instructor, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Lucas Rodrigues' %>
+    </div>
+    <div class="flex">
+      <div class="w-1/2 mr-2">
+        <%= form.label :started_at, class: 'block mb-2 text-sm font-medium text-black' %>
+        <%= form.date_field :started_at, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400' %>
+      </div>
+      <div class="w-1/2">
+        <%= form.label :ended_at, class: 'block mb-2 text-sm font-medium text-black' %>
+        <%= form.date_field :ended_at, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400' %>
+      </div>
+    </div>
+    <div class="mt-4 text-right">
+      <%= form.submit 'Salvar', class: 'bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' %>
+    </div>
+  <% end %>
+</div>
