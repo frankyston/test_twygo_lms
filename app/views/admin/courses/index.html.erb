@@ -1,7 +1,7 @@
 <section class="bg-white py-1">
   <div class="container mx-auto flex items-center flex-wrap pt-3 pb-12">
-    <h1 class="text-2xl font-bold"><%= I18n.t("activerecord.models.#{Course.to_s.downcase}.two")%></h1>
-    <div class="w-full flex items-center justify-between">
+    <h1 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-2"><%= I18n.t("activerecord.models.#{Course.to_s.downcase}.two")%></h1>
+    <div class="w-full flex items-center justify-between mb-2">
       <a href="<%= new_admin_course_path %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">
         <%= I18n.t('new', model: I18n.t("activerecord.models.#{Course.to_s.downcase}.one")) %>
       </a>
@@ -35,7 +35,7 @@
                   <%= course.title %>
                 </th>
                 <td class="px-6 py-4">
-                  <%= course.description %>
+                  <%= truncate(course.description, length: 280) %>
                 </td>
                 <td class="px-6 py-4">
                   <%= course.instructor %>
