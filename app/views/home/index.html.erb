@@ -1,5 +1,5 @@
 <section class="bg-white pb-8">
-  <div class="container mx-auto flex items-center flex-wrap pt-4">
+  <div class="container mx-auto flex items-center flex-wrap pt-4 justify-center">
     <nav id="store" class="w-full z-30 top-0 px-6 py-1">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
         <h1 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl" href="#">
@@ -8,8 +8,18 @@
       </div>
     </nav>
 
-    <% @courses.each do |course| %>
-      <%= render "course", course: course %>
-    <% end %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+      <% @courses.each do |course| %>
+        <%= render "course", course: course %>
+      <% end %>
+
+      <% @courses.each do |course| %>
+        <%= render "course", course: course %>
+      <% end %>
+
+      <% @courses.each do |course| %>
+        <%= render "course", course: course %>
+      <% end %>
+    </div>
   </div>
 </section>
