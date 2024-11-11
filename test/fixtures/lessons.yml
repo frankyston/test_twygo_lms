@@ -3,13 +3,13 @@
 one:
   title: MyString
   description: MyText
-  time: 1
+  duration: 1
   file_size: 1
   course: one
 
 two:
   title: MyString
   description: MyText
-  time: 1
+  duration: 1
   file_size: 1
   course: two
