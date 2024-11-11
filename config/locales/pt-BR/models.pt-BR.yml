@@ -23,6 +23,12 @@ pt-BR:
         instructor: Instrutor
         started_at: Data início
         ended_at: Data fim
+        cover: Imagem do curso
+      lesson:
+        title: Título da aula
+        description: Descrição
+        file: Vídeo
+        thumbnail: Thumbnail
     enums:
       user:
         roles:
