@@ -1,5 +1,6 @@
 pt-BR:
   actions: Ações
+  show: Detalhes
   new: Novo %{model}
   edit: Editar %{model}
   about: Sobre a Twygo
@@ -10,7 +11,8 @@ pt-BR:
   destroy: Excluir
   social: Social
   confirm_message: Tem certeza que deseja excluir?
-  not_found: Nenhum %{model} encontrado.
+  not_found: "%{model} não encontrado."
   home: Início
   my_courses: Meus cursos
   create_courses: Cadastrar cursos
+  lessons: Aulas

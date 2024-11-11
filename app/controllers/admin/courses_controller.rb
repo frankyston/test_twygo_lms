@@ -1,5 +1,5 @@
 class Admin::CoursesController < Admin::BaseController
-  before_action :set_course, only: [:edit, :update, :destroy]
+  before_action :set_course, only: [:edit, :show, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -7,6 +7,10 @@ class Admin::CoursesController < Admin::BaseController
 
   def new
     @course = Course.new
+  end
+
+  def show
+    @lessons = @course.lessons
   end
 
   def create
