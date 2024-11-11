@@ -12,6 +12,8 @@ class Course < ApplicationRecord
   validates :ended_at, presence: true
   validate :validate_ended_at
 
+  before_destroy :destroy_enrollments
+
   has_many :lessons, dependent: :destroy
   belongs_to :user
 
@@ -33,12 +35,10 @@ class Course < ApplicationRecord
 
   def self.active
     where('started_at <= ? AND ended_at >= ?', Date.today, Date.today)
-    # 8 <= 8 and 10 >= 8
   end
 
   def self.inactive
     where('started_at <= ? AND ended_at < ?', Date.today, Date.today)
-    # 8 <= 8 and 10 < 8
   end
 
   def validate_ended_at
@@ -51,5 +51,9 @@ class Course < ApplicationRecord
 
   def total_size_in_megabytes
     lessons.all.sum(&:bytes_to_megabytes).round(2)
+  end
+
+  def destroy_enrollments
+    Enrollment.where(course_id: self.id).destroy_all
   end
 end
