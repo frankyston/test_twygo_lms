@@ -10,6 +10,7 @@ class Course < ApplicationRecord
   validate :validate_ended_at
 
   has_many :lessons, dependent: :destroy
+  belongs_to :user
 
   def started?
     started_at <= Date.today
@@ -41,7 +42,11 @@ class Course < ApplicationRecord
     errors.add(:ended_at, 'deve ser maior que a data de início') if ended_at.present? && ended_at <= started_at
   end
 
+  def total_duration_in_minutes
+    lessons.all.sum(&:duration)
+  end
+
   def total_size_in_megabytes
-    lessons.all.sum(&:bytes_to_megabytes)
+    lessons.all.sum(&:bytes_to_megabytes).round(2)
   end
 end

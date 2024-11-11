@@ -1,9 +1,19 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+## Users
+
+User.find_or_create_by(email: 'admin@example.com', password: '123456', password_confirmation: '123456', role: 'admin')
+
+## Courses
+
+Course.find_or_create_by(title: 'Curso de Ruby on Rails', description: 'Curso de Ruby on Rails', instructor: 'Teste', started_at: Date.today, ended_at: Date.today + 1.month, user: User.first)
+
+## Lessons
+
+Lesson.find_or_create_by(
+  title: 'Aula 1',
+  description: 'Aula 1',
+  duration: 4,
+  file_size: 8503379,
+  course: Course.first,
+  file: File.open(Rails.root.join('app', 'assets', 'videos', 'sample.mp4')),
+  thumbnail: File.open(Rails.root.join('app', 'assets', 'images', 'thumbnail.png'))
+)

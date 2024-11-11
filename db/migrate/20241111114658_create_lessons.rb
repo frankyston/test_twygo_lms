@@ -3,8 +3,8 @@ class CreateLessons < ActiveRecord::Migration[7.2]
     create_table :lessons do |t|
       t.string :title, null: false, index: true
       t.text :description, null: false
-      t.integer :duration, null: true
-      t.integer :file_size, null: true
+      t.integer :duration, default: 0
+      t.integer :file_size, default: 0
       t.references :course, null: false, foreign_key: true
 
       t.timestamps

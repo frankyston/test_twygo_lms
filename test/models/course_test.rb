@@ -17,27 +17,27 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test 'should not be valid with ended_at before started_at' do
-    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today + 1.day, ended_at: Date.today, instructor: 'Teste')
+    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today + 1.day, ended_at: Date.today, instructor: 'Teste', user: User.first)
     assert_not course.valid?
   end
 
   test 'should be active' do
-    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today - 1.day, ended_at: Date.today + 1.day, instructor: 'Teste' )
+    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today - 1.day, ended_at: Date.today + 1.day, instructor: 'Teste', user: User.first)
     assert course.active?
   end
 
   test 'should be inactive' do
-    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today - 2.day, ended_at: Date.today - 1.day, instructor: 'Teste')
+    course = Course.new(title: 'Teste', description: 'Teste', started_at: Date.today - 2.day, ended_at: Date.today - 1.day, instructor: 'Teste', user: User.first)
     assert course.inactive?
   end
 
   test 'should return active courses' do
-    Course.create(title: 'Teste curso 1', description: 'Teste curso 1', started_at: Date.today - 1.day, ended_at: Date.today + 1.day, instructor: 'Teste')
+    Course.create(title: 'Teste curso 1', description: 'Teste curso 1', started_at: Date.today - 1.day, ended_at: Date.today + 1.day, instructor: 'Teste', user: User.first)
     assert_equal 3, Course.active.count
   end
 
   test 'should return inactive courses' do
-    Course.create(title: 'Teste', description: 'Teste', started_at: Date.today - 2.day, ended_at: Date.today - 1.day, instructor: 'Teste')
+    Course.create(title: 'Teste', description: 'Teste', started_at: Date.today - 2.day, ended_at: Date.today - 1.day, instructor: 'Teste', user: User.first)
     assert_equal 1, Course.inactive.count
   end
 

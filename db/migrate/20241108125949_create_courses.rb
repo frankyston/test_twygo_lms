@@ -7,6 +7,7 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.date :started_at, null: false, index: true
       t.date :ended_at, null: false, index: true
       t.boolean :emphasis, default: false
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

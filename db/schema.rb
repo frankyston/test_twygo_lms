@@ -49,18 +49,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_11_142939) do
     t.date "started_at", null: false
     t.date "ended_at", null: false
     t.boolean "emphasis", default: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ended_at"], name: "index_courses_on_ended_at"
     t.index ["started_at"], name: "index_courses_on_started_at"
     t.index ["title"], name: "index_courses_on_title"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "lessons", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.integer "duration"
-    t.integer "file_size"
+    t.integer "duration", default: 0
+    t.integer "file_size", default: 0
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -211,6 +213,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_11_142939) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "courses", "users"
   add_foreign_key "lessons", "courses"
   add_foreign_key "sessions", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
