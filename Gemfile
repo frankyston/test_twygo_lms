@@ -42,6 +42,13 @@ gem "bootsnap", require: false
 # Authentication
 gem "authentication-zero", "~> 4.0"
 
+# FFMPEG
+gem 'streamio-ffmpeg'
+
+# Background Jobs
+gem 'solid_queue'
+gem 'mission_control-jobs'
+
 # Amazon S3
 gem "aws-sdk-s3", require: false
 
