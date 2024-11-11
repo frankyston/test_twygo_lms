@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :enrollments
+  has_many :my_courses, through: :enrollments, source: :course
+
   has_many :courses
 
   enum role: { student: 0, admin: 1 }
