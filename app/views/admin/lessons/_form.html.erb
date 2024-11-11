@@ -1,0 +1,38 @@
+<div class="container mx-auto flex items-center flex-wrap pt-3" data-turbo="false">
+  <%= form_with(model: [:admin, @course, @lesson], class: 'w-full', as: :html) do |form| %>
+    <% if @lesson.errors.any? %>
+      <div style="color: red">
+        <h2><%= I18n.t('activerecord.errors.messages.record_with_errors') %></h2>
+
+        <ul>
+          <% @lesson.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="mb-4">
+      <%= form.label :title, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.text_field :title, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Curso de Flutter para iniciantes' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :description, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.text_area :description, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Aprenda a criar e gerenciar seu próprio aplicativo em Flutter' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :thumbnail, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.file_field :thumbnail, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Lucas Rodrigues' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :file, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.file_field :file, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Lucas Rodrigues' %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :time, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.number_field :time, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: '10' %>
+    </div>
+    <div class="mt-4 text-right">
+      <%= form.submit I18n.t('save'), class: 'bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' %>
+    </div>
+  <% end %>
+</div>

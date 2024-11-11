@@ -40,4 +40,8 @@ class Course < ApplicationRecord
   def validate_ended_at
     errors.add(:ended_at, 'deve ser maior que a data de início') if ended_at.present? && ended_at <= started_at
   end
+
+  def total_size_in_megabytes
+    lessons.all.sum(&:bytes_to_megabytes)
+  end
 end

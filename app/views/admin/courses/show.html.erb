@@ -19,20 +19,18 @@
         <% @lessons.each do |lesson| %>
           <div class="flex items-center mb-4 border border-gray-400 rounded-lg">
             <div class="w-64 h-40 flex-shrink-0">
-              <img src="https://via.placeholder.com/128x80" alt="Thumbnail do Vídeo" class="w-full h-full object-cover rounded-lg">
+              <%= link_to image_tag(lesson.thumbnail, class: 'w-full h-full object-cover rounded-lg'), admin_course_lesson_path(@course, lesson) %>
             </div>
             <div class="ml-4">
-              <h2 class="text-lg font-semibold text-gray-900">Título do Vídeo</h2>
-              <p class="text-sm text-gray-500">Descrição curta do vídeo que aparece aqui. Pode ser uma pequena introdução ou resumo.</p>
-              <p class="text-xs text-gray-400 mt-1">Publicado em: 01/01/2023</p>
-              <p class="mt-2">
-                <button class="bg-blue-500 text-white text-xs font-semibold py-1 px-2 rounded hover:bg-blue-600">
-                  <%= I18n.t('edit') %>
-                </button>
-                <button class="bg-red-500 text-white text-xs font-semibold py-1 px-2 rounded hover:bg-red-600">
-                  <%= I18n.t('destroy') %>
-                </button>
-              </p>
+              <h2 class="text-lg font-semibold text-gray-900"><%= lesson.title %></h2>
+              <p class="text-sm text-gray-500"><%= truncate(lesson.description, length: 200) %></p>
+              <p class="text-xs text-gray-400 mt-1">Publicado em: <%= lesson.created_at.strftime('%d/%m/%Y') %></p>
+              <p class="text-xs text-gray-400 mt-1">Duração: <%= lesson.time / 60 %> minutos</p>
+
+              <div class="mt-2 flex items-center text-right">
+                <%= link_to I18n.t('edit'), edit_admin_course_lesson_path(@course, lesson), class: 'bg-blue-500 text-white text-xs font-semibold py-1 px-2 rounded hover:bg-blue-600 mr-2' %>
+                <%= button_to I18n.t('destroy'), admin_course_lesson_path(@course, lesson), method: :delete, form: { data: { turbo_confirm: I18n.t('confirm_message') } }, class: 'bg-red-500 text-white text-xs font-semibold py-1 px-2 rounded hover:bg-red-600' %>
+              </div>
             </div>
           </div>
         <% end %>
