@@ -42,6 +42,9 @@ gem "bootsnap", require: false
 # Authentication
 gem "authentication-zero", "~> 4.0"
 
+# Amazon S3
+gem "aws-sdk-s3", require: false
+
 group :development, :test do
   gem "awesome_print"
   gem "dotenv-rails"
