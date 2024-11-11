@@ -20,6 +20,10 @@
       <%= form.text_area :description, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Aprenda a criar e gerenciar seu próprio aplicativo em Flutter' %>
     </div>
     <div class="mb-4">
+      <%= form.label :cover, class: 'block mb-2 text-sm font-medium text-black' %>
+      <%= form.file_field :cover, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Aprenda a criar e gerenciar seu próprio aplicativo em Flutter' %>
+    </div>
+    <div class="mb-4">
       <%= form.label :instructor, class: 'block mb-2 text-sm font-medium text-black' %>
       <%= form.text_field :instructor, class: 'bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400', placeholder: 'Lucas Rodrigues' %>
     </div>

@@ -2,6 +2,8 @@ class Course < ApplicationRecord
   #has_many :enrollments
   #has_many :users, through: :enrollments
 
+  has_one_attached :cover
+
   validates :title, presence: true
   validates :description, presence: true
   validates :instructor, presence: true
