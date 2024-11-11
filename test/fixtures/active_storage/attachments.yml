@@ -1,0 +1,4 @@
+course_cover:
+  name: cover
+  record: one (Course)
+  blob: course_cover_blob

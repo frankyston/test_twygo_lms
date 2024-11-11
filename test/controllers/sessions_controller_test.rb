@@ -3,6 +3,7 @@ require "test_helper"
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:lazaro_nixon)
+    @lesson = lessons(:one)
   end
 
   test "should get index" do

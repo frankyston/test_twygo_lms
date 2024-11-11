@@ -3,6 +3,7 @@
 one:
   title: MyString
   description: MyText
+  short_description: MyShortText
   duration: 1
   file_size: 1
   course: one
@@ -10,6 +11,7 @@ one:
 two:
   title: MyString
   description: MyText
+  short_description: MyShortText
   duration: 1
   file_size: 1
   course: two

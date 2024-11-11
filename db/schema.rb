@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_11_201751) do
   create_table "courses", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
+    t.text "short_description", null: false
     t.string "instructor", null: false
     t.date "started_at", null: false
     t.date "ended_at", null: false
@@ -70,6 +71,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_11_201751) do
   create_table "lessons", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
+    t.text "short_description", null: false
     t.integer "duration", default: 0
     t.integer "file_size", default: 0
     t.bigint "course_id", null: false

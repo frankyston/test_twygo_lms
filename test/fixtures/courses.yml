@@ -3,6 +3,7 @@
 one:
   title: MyString
   description: MyText
+  short_description: MyShortText
   instructor: MyString
   started_at: 2024-11-08
   ended_at: 2024-11-18
@@ -12,6 +13,7 @@ one:
 two:
   title: MyString
   description: MyText
+  short_description: MyShortText
   instructor: MyString
   started_at: 2024-11-08
   ended_at: 2024-11-08

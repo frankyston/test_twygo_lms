@@ -1,0 +1,1 @@
+course_cover_blob: <%= ActiveStorage::FixtureSet.blob filename: "cover.jpg", service_name: "test" %>

@@ -15,7 +15,7 @@ Course.find_or_create_by(
   ended_at: Date.today + 1.month,
   user: User.first
 ) do |course|
-  course.cover = File.open(Rails.root.join('app', 'assets', 'images', 'cover.jpg'))
+  course.cover = File.open(Rails.root.join('test', 'fixtures', 'files', 'cover.jpg'))
 end
 
 ## Lessons
@@ -27,6 +27,6 @@ Lesson.find_or_create_by(
   file_size: 8503379,
   course: Course.first
 ) do |lesson|
-  lesson.file = File.open(Rails.root.join('app', 'assets', 'videos', 'sample.mp4'))
-  lesson.thumbnail = File.open(Rails.root.join('app', 'assets', 'images', 'thumbnail.png'))
+  lesson.file = File.open(Rails.root.join('test', 'fixtures', 'files', 'sample.mp4'))
+  lesson.thumbnail = File.open(Rails.root.join('test', 'fixtures', 'files', 'thumbnail.png'))
 end
