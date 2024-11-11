@@ -39,7 +39,7 @@ class Admin::LessonsController < Admin::BaseController
   private
 
   def set_course
-    @course = Course.find(params[:course_id])
+    @course = @current_user.courses.find(params[:course_id])
   end
 
   def set_lesson

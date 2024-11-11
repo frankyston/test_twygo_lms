@@ -2,11 +2,11 @@ class Admin::CoursesController < Admin::BaseController
   before_action :set_course, only: [:edit, :show, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = @current_user.courses.all
   end
 
   def new
-    @course = Course.new
+    @course = @current_user.courses.new
   end
 
   def show
@@ -14,7 +14,7 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def create
-    @course = Course.new(course_params)
+    @course = @current_user.courses.new(course_params)
     if @course.save
       redirect_to admin_courses_path, notice: 'Curso criado com sucesso'
     else
@@ -41,10 +41,10 @@ class Admin::CoursesController < Admin::BaseController
   private
 
   def set_course
-    @course = Course.find(params[:id])
+    @course = @current_user.courses.find(params[:id])
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at)
+    params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at, :cover)
   end
 end

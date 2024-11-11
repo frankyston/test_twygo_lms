@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     def authenticate
       if session_record = Session.find_by_id(cookies.signed[:session_token])
         Current.session = session_record
+        @current_user = session_record.user
       else
         redirect_to sign_in_path
       end
