@@ -12,6 +12,7 @@ class Admin::LessonsController < Admin::BaseController
   def create
     @lesson = @course.lessons.new(lesson_params)
     if @lesson.save
+      VideoJob.perform_later(@lesson.id)
       redirect_to admin_course_path(@course), notice: 'Aula criada com sucesso'
     else
       render :new
@@ -23,6 +24,7 @@ class Admin::LessonsController < Admin::BaseController
 
   def update
     if @lesson.update(lesson_params)
+      VideoJob.perform_later(@lesson.id)
       redirect_to admin_course_path(@course), notice: 'Aula atualizada com sucesso'
     else
       render :edit
@@ -45,6 +47,6 @@ class Admin::LessonsController < Admin::BaseController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :description, :file, :time, :thumbnail)
+    params.require(:lesson).permit(:title, :description, :file, :thumbnail)
   end
 end
