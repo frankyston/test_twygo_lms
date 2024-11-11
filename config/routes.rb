@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     resource :password_reset,     only: [ :new, :edit, :create, :update ]
   end
   root "home#index"
-  resources :courses, only: [ :show ]
+  resources :courses, only: [ :show ] do
+    resources :lessons, only: [ :show ]
+  end
+
+  get "enrollments/:course_id", to: "enrollments#create", as: :enrollments
+
 
   namespace :admin do
     resources :courses do
