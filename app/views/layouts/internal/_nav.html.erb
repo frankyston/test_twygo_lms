@@ -24,7 +24,7 @@
             <%= link_to I18n.t('home'), root_path, class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
           </li>
           <li>
-            <%= link_to I18n.t('my_courses'), '#', class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
+            <%= link_to I18n.t('my_courses'), root_path(my_courses: true), class: 'inline-block no-underline hover:text-black hover:underline py-2 px-4' %>
           </li>
           <% if Current.user.admin? %>
             <li>
