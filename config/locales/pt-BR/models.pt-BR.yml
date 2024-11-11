@@ -8,6 +8,9 @@ pt-BR:
       course:
         one: "Curso"
         two: 'Cursos'
+      lesson:
+        one: 'Aula'
+        two: 'Aulas'
     attributes:
       user:
         email: E-mail

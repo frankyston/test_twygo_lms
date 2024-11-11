@@ -9,6 +9,8 @@ class Course < ApplicationRecord
   validates :ended_at, presence: true
   validate :validate_ended_at
 
+  has_many :lessons, dependent: :destroy
+
   def started?
     started_at <= Date.today
   end
