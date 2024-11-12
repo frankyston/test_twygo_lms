@@ -45,6 +45,6 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at, :cover)
+    params.require(:course).permit(:title, :description, :instructor, :started_at, :ended_at, :cover, :short_description)
   end
 end

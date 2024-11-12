@@ -36,9 +36,9 @@
             </div>
             <div class="ml-4">
               <h2 class="text-lg font-semibold text-gray-900"><%= lesson.title %></h2>
-              <p class="text-sm text-gray-500"><%= truncate(lesson.description, length: 100) %></p>
+              <p class="text-sm text-gray-500"><%= lesson.description %></p>
               <p class="text-xs text-gray-400 mt-1">Publicado em: <%= lesson.created_at.strftime('%d/%m/%Y') %></p>
-              <p class="text-xs text-gray-400 mt-1">Duração: <%= lesson.processed? ? lesson.duration : 0%> minutos</p>
+              <p class="text-xs text-gray-400 mt-1">Duração: <%= lesson.processed? ? lesson.duration : 0 %> minutos</p>
               <p class="text-xs text-gray-400 mt-1">
                 <% if lesson.processed? %>
                   <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Processado</span>

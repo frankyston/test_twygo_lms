@@ -12,6 +12,8 @@ class Course < ApplicationRecord
   validates :ended_at, presence: true
   validate :validate_ended_at
 
+  validates :short_description, presence: true, length: { maximum: 100 }
+
   before_destroy :destroy_enrollments
 
   has_many :lessons, dependent: :destroy

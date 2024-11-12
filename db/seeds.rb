@@ -10,6 +10,7 @@ end
 Course.find_or_create_by(
   title: 'Curso de Ruby on Rails',
   description: 'Curso de Ruby on Rails',
+  short_description: 'Curso de Ruby on Rails',
   instructor: 'Teste',
   started_at: Date.today,
   ended_at: Date.today + 1.month,
@@ -23,6 +24,7 @@ end
 Lesson.find_or_create_by(
   title: 'Aula 1',
   description: 'Aula 1',
+  short_description: 'Aula 1',
   duration: 4,
   file_size: 8503379,
   course: Course.first

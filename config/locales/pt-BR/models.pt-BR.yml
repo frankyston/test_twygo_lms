@@ -19,14 +19,16 @@ pt-BR:
         role: Cargo
       course:
         title: Nome do curso
-        description: Descrição
+        description: Descrição completa
+        short_description: Descrição curta
         instructor: Instrutor
         started_at: Data início
         ended_at: Data fim
         cover: Imagem do curso
       lesson:
         title: Título da aula
-        description: Descrição
+        description: Descrição completa
+        short_description: Descrição curta
         file: Vídeo
         thumbnail: Thumbnail
     enums:
