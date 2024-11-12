@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
       session_record = @user.sessions.create!
       cookies.signed.permanent[:session_token] = { value: session_record.id, httponly: true }
 
-      redirect_to root_path, notice: "Bem vindo! Você foi registrado com sucesso"
+      redirect_to root_path, notice: I18n.t('welcome')
     else
       render :new, status: :unprocessable_entity
     end

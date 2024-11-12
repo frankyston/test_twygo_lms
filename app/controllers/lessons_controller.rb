@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
     if @current_user.my_courses.include?(@course)
       @lesson = @course.lessons.find(params[:id])
     else
-      redirect_to root_path, alert: "Você não tem permissão para acessar esta aula"
+      redirect_to root_path, alert: I18n.t('not_allowed', model: Lesson.model_name.human)
     end
   end
 end

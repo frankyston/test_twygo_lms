@@ -13,7 +13,7 @@ class Admin::LessonsController < Admin::BaseController
     @lesson = @course.lessons.new(lesson_params)
     if @lesson.save
       VideoJob.perform_later(@lesson.id)
-      redirect_to admin_course_path(@course), notice: 'Aula criada com sucesso'
+      redirect_to admin_course_path(@course), notice: I18n.t('created', model: Lesson.model_name.human)
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::LessonsController < Admin::BaseController
   def update
     if @lesson.update(lesson_params)
       VideoJob.perform_later(@lesson.id)
-      redirect_to admin_course_path(@course), notice: 'Aula atualizada com sucesso'
+      redirect_to admin_course_path(@course), notice: I18n.t('updated', model: Lesson.model_name.human)
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class Admin::LessonsController < Admin::BaseController
 
   def destroy
     @lesson.destroy
-    redirect_to admin_course_path(@course), notice: 'Aula deletada com sucesso'
+    redirect_to admin_course_path(@course), notice: I18n.t('destroyed', model: Lesson.model_name.human)
   end
 
   private
