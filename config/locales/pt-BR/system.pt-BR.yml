@@ -36,3 +36,4 @@ pt-BR:
   enrolled: "Você se inscreveu no %{model} com sucesso!"
   not_found: "%{model} não encontrado!"
   not_allowed: "Você não tem permissão para acessar esta %{model}"
+  welcome: "Bem vindo! Você foi registrado com sucesso"
