@@ -13,6 +13,6 @@ class Lesson < ApplicationRecord
   end
 
   def processed?
-    self.duration.present? && self.file_size.present?
+    self.duration.positive? && self.file_size.positive?
   end
 end
