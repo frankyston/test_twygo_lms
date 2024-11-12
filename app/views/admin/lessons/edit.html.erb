@@ -2,7 +2,7 @@
   <div class="container mx-auto flex items-center flex-wrap pt-3 pb-12">
     <h1 class="text-2xl font-bold"><%= I18n.t('edit', model: I18n::t("activerecord.models.#{Lesson.to_s.downcase}", count: 1)) %></h1>
     <div class="w-full text-right">
-      <a href="<%= admin_course_path(@course) %>" class="bg-blue-500 text-white px-4 py-2 rounded-md">
+      <a href="<%= admin_course_path(@course) %>" class="bg-purple-500 text-white px-4 py-2 rounded-md">
         <%= I18n.t('back') %>
       </a>
     </div>

@@ -4,7 +4,7 @@ pt-BR:
   new: Novo %{model}
   edit: Editar %{model}
   about: Sobre a Twygo
-  about_description: Somos uma plataforma de cursos online.
+  about_description: Somos uma plataforma LMS que fornece uma experiência única desde o primeiro contato, com implantação one-day-ready,do seu jeito e muito fácil de usar.
   back: Voltar
   save: Salvar
   edit: Editar
@@ -27,3 +27,5 @@ pt-BR:
   processing: Processando
   size: Tamanho
   lessons_count: Total de aulas
+  report: Relatório
+  new_lesson: Criar aula
