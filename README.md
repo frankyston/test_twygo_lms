@@ -25,8 +25,8 @@ O projeto segue a arquitetura MVC (Model-View-Controller) do Rails e utiliza con
 
 ### 1. Clonando o Repositório
 ```bash
-git clone [url-do-repositorio]
-cd [nome-do-projeto]
+git clone https://github.com/frankyston/test_twygo_lms
+cd test_twygo_lms
 ```
 
 ### 2. Configuração das Variáveis de Ambiente
@@ -73,6 +73,15 @@ ENV_FILE=.env.test dcr -it --rm app bash
 # Executar os testes
 rake test
 ```
+
+## 🚀 Usando
+Existe dois usuários criados no seed
+- student@student.com (sem a permissão de criar curso)
+- admin@admin.com (com permissão de criar curso)
+
+Todos os dois tem a senha `123456`.
+
+Para testar online, acesse a url: https://testetwygo.frankyston.dev
 
 ## 📧 Contato
 - Nome do Desenvolvedor - [frankyston@gmail.com]
