@@ -16,3 +16,14 @@ pt-BR:
   my_courses: Meus cursos
   create_courses: Cadastrar cursos
   lessons: Aulas
+  instructor: Instrutor
+  duration: Duração
+  minutes: minutos
+  description: Descrição
+  enroll: Inscreva-se
+  max_characters: "Máximo de %{max} caracteres"
+  published_at: "Publicado em"
+  processed: Processado
+  processing: Processando
+  size: Tamanho
+  lessons_count: Total de aulas
