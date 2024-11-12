@@ -84,5 +84,5 @@ Todos os dois tem a senha `123456`.
 Para testar online, acesse a url: https://testetwygo.frankyston.dev
 
 ## 📧 Contato
-- Nome do Desenvolvedor - [frankyston@gmail.com]
+- Frankyston Lins - [frankyston@gmail.com]
 - Link do Projeto: [https://github.com/frankyston/test_twygo_lms]
