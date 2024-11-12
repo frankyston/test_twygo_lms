@@ -21,7 +21,7 @@ end
     instructor: 'Teste',
     started_at: Date.today,
     ended_at: Date.today + 1.month,
-    user: User.first
+    user: User.last
     ) do |course|
       course.cover = File.open(Rails.root.join('test', 'fixtures', 'files', covers.sample))
     end
