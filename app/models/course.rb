@@ -1,11 +1,10 @@
 class Course < ApplicationRecord
   has_many :enrollments
   has_many :users, through: :enrollments
-  # Enrollment.where(course_id: 1, user_id: 1).exists?
 
   has_one_attached :cover
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
   validates :description, presence: true
   validates :instructor, presence: true
   validates :started_at, presence: true
