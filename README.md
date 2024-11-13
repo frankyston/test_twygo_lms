@@ -7,6 +7,7 @@ Este é um Sistema de Gestão de Aprendizagem (LMS) desenvolvido em Ruby on Rail
 - Ruby on Rails
 - PostgreSQL
 - Docker & Docker Compose
+- FFMPEG
 - TailwindCSS
 - Minitest para testes
 
